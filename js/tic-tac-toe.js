@@ -5,6 +5,8 @@
  *  Description: Functions that support implementation of Tic Tac Toe game.
 ******************************************************************************/
 
-const game = () => {
-    
+function game() {
+    let gameBoard = [["", "", ""] ,
+                    ["", "", ""],
+                    ["", "", ""]];
 }
