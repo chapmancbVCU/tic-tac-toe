@@ -17,15 +17,32 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
         crossorigin="anonymous"/>
     <script src="https://kit.fontawesome.com/b6bd64a9dd.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous">
+    </script>
+    <script type = "text/javascript" 
+        src = "https://www.tutorialspoint.com/jquery/jquery-3.6.0.js">
+    </script>
+    <script type = "text/javascript" 
+        src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+    </script>
+    <script type = "text/javascript" language = "javascript">
+        $(document).ready(function() {
+            $("button").click(function(){
+                $(".target").effect( "bounce", {times:3}, 300 );
+            });
+        });  
+    </script>
 </head>
 <body>
     <div class="container-fluid">
         <h1 class="text-primary text-center">Tic Tac Toe</h1>
     
-
         <!-- Setup new game button and style it with Bootstrap -->
-        <div class="form-row text-center">
-            <button class="btn btn-primary">
+        <div class="form-row text-center target">
+            <button class="btn btn-primary ">
                 <i class="fa-solid fa-gamepad"></i>
                 New Game 
             </button>
