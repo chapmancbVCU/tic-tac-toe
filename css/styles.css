@@ -4,3 +4,19 @@
   Date Created: November 3, 2022
    Description: CSS Stylesheet for Tic Tac Toe project.
 ******************************************************************************/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#game-container {
+  border: 2px solid blue;
+  min-width: 305px;
+  max-width: 305px
+}
+
+.cube {
+  min-width: 100px;
+  min-height: 100px;
+  border: 1px solid black;
+}
