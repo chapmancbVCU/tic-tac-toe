@@ -24,11 +24,11 @@ h1 {
 }
 
 .cube1, .cube2, .cube4, .cube5, .cube7, .cube8 {
-  border-right: solid 2px black;
+  border-right: solid 4px black;
 }
 
 .cube1, .cube2, .cube3, .cube4, .cube5, .cube6 {
-  border-bottom: solid 2px black;
+  border-bottom: solid 4px black;
 }
 
 .game-button-container {
