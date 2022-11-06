@@ -48,7 +48,7 @@ const gameCube = () => {
 
 const player = (symbol) => {
     let gameStatus = "START"; 
-    let playerTurn = "false";
+    let playerTurn = false;
 
     const getGameStatus = () => {
         return gameStatus;
