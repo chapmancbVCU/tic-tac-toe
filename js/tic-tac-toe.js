@@ -4,10 +4,8 @@
  * Date Created: November 3, 2022
  *  Description: Functions that support implementation of Tic Tac Toe game.
 ******************************************************************************/
-
-
     
-let gameInstance = {
+let game = {
     gameBoard: [["-", "-", "-"],
                 ["-", "-", "-"],
                 ["-", "-", "-"]],
@@ -40,14 +38,29 @@ let gameInstance = {
         $(this.gameButtonContainer).effect( "bounce", {times:3}, 300 );
         $(this.$button).prop("disabled", true);
     },
+};
+
+game.init();
+
+const gameCube = () => {
 
 };
 
-gameInstance.init();
-
-
-
 const player = (symbol) => {
-    
-}
+    let gameStatus = "START"; 
+    let playerTurn = "false";
+
+    const getGameStatus = () => {
+        return gameStatus;
+    }
+    const getPlayerTurn = () => {
+        return playerTurn;
+    }
+    const setPlayerTurn = (newTurn) => {
+        playerTurn = newTurn;
+    }
+    return {
+        getGameStatus, getPlayerTurn, setPlayerTurn
+    };  
+};
 
