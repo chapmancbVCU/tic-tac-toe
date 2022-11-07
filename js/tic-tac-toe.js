@@ -6,10 +6,6 @@
 ******************************************************************************/
     
 let game = {
-    /*gameBoard: [["-", "-", "-"],
-                ["-", "-", "-"],
-                ["-", "-", "-"]],
-     */
     gameBoard: [],
     
     init: function() {
@@ -56,17 +52,28 @@ const gameCube = (coordinates) => {
 };
 
 const player = (symbol) => {
-    let gameStatus = "START"; 
     let playerTurn = false;
 
-    const getGameStatus = () => {
-        return gameStatus;
-    }
+    /**
+     * This function reports whether or not it is the player's turn.
+     * @returns A boolean value, true if it is the player's turn and false if
+     * it is not the player's turn to play.
+     */
     const getPlayerTurn = () => {
         return playerTurn;
     }
+
+    /**
+     * Use to set if it is player's turn.  Boolean values is only accepted.  If
+     * a bad value is entered a messages is written to the console.
+     * @param {boolean} newTurn 
+     */
     const setPlayerTurn = (newTurn) => {
-        playerTurn = newTurn;
+        if(typeof newTurn == "boolean") {
+            playerTurn = newTurn;
+        } else {
+            console.log("Value not boolean");
+        }
     }
     return {
         getGameStatus, getPlayerTurn, setPlayerTurn
