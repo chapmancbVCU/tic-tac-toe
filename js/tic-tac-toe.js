@@ -44,11 +44,24 @@ let game = {
 game.init();
 
 const gameCube = (coordinates) => {
+    const mark = "";
     const getCoordinates = () => {
         return coordinates;
     }
 
-    return {getCoordinates }
+    const getMark = () => {
+        return mark;
+    }
+
+    const setMark = (markToSet) => {
+        if(markToSet === "x" || markToSet === "o") {
+            mark = markToSet;
+        } else {
+            console.log("Invalid symbol");
+        }
+    }
+
+    return {getCoordinates, getMark }
 };
 
 const player = (symbol) => {
@@ -76,7 +89,7 @@ const player = (symbol) => {
         }
     }
     return {
-        getGameStatus, getPlayerTurn, setPlayerTurn
+        getPlayerTurn, setPlayerTurn
     };  
 };
 
