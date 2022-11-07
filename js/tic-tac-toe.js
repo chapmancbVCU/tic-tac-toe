@@ -6,10 +6,12 @@
 ******************************************************************************/
     
 let game = {
-    gameBoard: [["-", "-", "-"],
+    /*gameBoard: [["-", "-", "-"],
                 ["-", "-", "-"],
                 ["-", "-", "-"]],
-                
+     */
+    gameBoard: [],
+    
     init: function() {
         this.cacheDOM();
         this.bindEvents();
@@ -26,11 +28,14 @@ let game = {
 
     
     setInitialGameState: function() {
-        for(let i = 0; i < this.gameBoard.length; i++) {
-            for(let j = 0; j < this.gameBoard[i].length; j++) {
-                $(`#row${i}-col${j}`).text(`${i}${j}`);
-                console.log(`${i}${j}`);
-                console.log(this.gameBoard[i][j]);
+        const row = 3;
+        const col = 3;
+        for(let i = 0; i < row; i++) {
+            this.gameBoard[i] = [];
+            for(let j = 0; j < col; j++) {
+                this.gameBoard[i][j] = gameCube(`${i}${j}`);
+                $(`#${i}${j}`).text(this.gameBoard[i][j].getCoordinates());
+                console.log(this.gameBoard[i][j].getCoordinates());
             }
         }
 
@@ -42,8 +47,12 @@ let game = {
 
 game.init();
 
-const gameCube = () => {
+const gameCube = (coordinates) => {
+    const getCoordinates = () => {
+        return coordinates;
+    }
 
+    return {getCoordinates }
 };
 
 const player = (symbol) => {
