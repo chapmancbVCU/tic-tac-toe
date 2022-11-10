@@ -29,39 +29,67 @@ let game = {
         for(let i = 0; i < row; i++) {
             this.gameBoard[i] = [];
             for(let j = 0; j < col; j++) {
-                this.gameBoard[i][j] = gameCube(`${i}${j}`);
+                this.gameBoard[i][j] = gameCube(`${i}${j}`, this.$el.find(`#${i}${j}`));
                 $(`#${i}${j}`).text(this.gameBoard[i][j].getCoordinates());
                 console.log(this.gameBoard[i][j].getCoordinates());
+                //this.$findCubeID = this.gameBoard[i][j].getCubeID();
+                //this.gameBoard[i][j].setMark('x');
+                //this.$findCubeID.on('click', this.gameBoard[i][j].setMark("x"));
+                //this.$findCubeID.text(this.gameBoard[i][j].getMark());
             }
         }
 
         // Add effects
         $(this.gameButtonContainer).effect( "bounce", {times:3}, 300 );
         $(this.$button).prop("disabled", true);
+
+        /*for(let i = 0; i < row; i++) {
+            for(let j = 0; j < col; j++) {
+                this.gameBoard[i][j].getCubeID().on('click', this.gameBoard[i][j].setMark("x").bind(this));
+                //this.$findCubeID.text(this.gameBoard[i][j].getMark());
+            }
+        }*/
+        
+        const gameDiv = document.querySelectorAll(".cube");
+        gameDiv.forEach(cube => cube.addEventListener('click', function() {
+            let charI = cube.id.charAt(0);
+            let charJ = cube.id.charAt(1);
+            let myMark = this.gameBoard[charI][charJ].getCoordinates();
+            console.log(`loc: ${charI}${charJ}, mark: ${myMark}`);
+
+        }));
     },
 };
 
 game.init();
 
-const gameCube = (coordinates) => {
-    const mark = "";
+const gameCube = (coordinates, cubeID) => {
+    let mark = "x";
     const getCoordinates = () => {
         return coordinates;
     }
 
+    const getCubeID = () => {
+        return cubeID;
+    }
     const getMark = () => {
         return mark;
+    }
+
+    const placeMark = () => {
+        this.evHandler.on('click', this.text("x"));
     }
 
     const setMark = (markToSet) => {
         if(markToSet === "x" || markToSet === "o") {
             mark = markToSet;
+            console.log(`mark: ${mark}`);
         } else {
             console.log("Invalid symbol");
         }
     }
 
-    return {getCoordinates, getMark }
+    return {getCoordinates, getCubeID, getMark, setMark }
 };
 
 const player = (symbol) => {
